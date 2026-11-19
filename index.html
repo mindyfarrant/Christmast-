@@ -274,8 +274,22 @@ var card=document.getElementById('card'),hint=document.getElementById('hint'),cv
 var flakes=[],touchFlakes=[],raf=0,on=false,timer=0,dpr=Math.min(window.devicePixelRatio||1,2);
 function size(){cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
 function mk(top){return{x:Math.random()*innerWidth,y:top?-10:Math.random()*innerHeight*-1,r:1+Math.random()*3,s:.6+Math.random()*1.6,d:Math.random()*6.28}}
-  function makeTouchCrystals(x,y){
-    function drawTouchCrystal(f){
+  
+function makeTouchCrystals(x,y){
+  for(var i=0;i<4;i++){
+    touchFlakes.push({
+      x:x+(Math.random()-.5)*45,
+      y:y+(Math.random()-.5)*45,
+      r:7+Math.random()*7,
+      life:1,
+      rotation:Math.random()*Math.PI,
+      drift:(Math.random()-.5)*1.5,
+      speed:.5+Math.random()*1
+    });
+  }
+}
+
+function drawTouchCrystal(f){
   ctx.save();
   ctx.translate(f.x,f.y);
   ctx.rotate(f.rotation);
@@ -301,19 +315,8 @@ function mk(top){return{x:Math.random()*innerWidth,y:top?-10:Math.random()*inner
   }
 
   ctx.restore();
-    }
-  for(var i=0;i<4;i++){
-    touchFlakes.push({
-      x:x+(Math.random()-.5)*45,
-      y:y+(Math.random()-.5)*45,
-      r:7+Math.random()*7,
-      life:1,
-      rotation:Math.random()*Math.PI,
-      drift:(Math.random()-.5)*1.5,
-      speed:.5+Math.random()*1
-    });
-  }
-  }
+}
+
 function tick(){
   ctx.clearRect(0,0,innerWidth,innerHeight);ctx.fillStyle='rgba(255,255,255,.9)';
   for(var i=0;i<flakes.length;i++){var f=flakes[i];f.y+=f.s;f.d+=.02;f.x+=Math.sin(f.d)*.6;
