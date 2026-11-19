@@ -143,7 +143,9 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
         <h1 class="gold">Merry Christmas</h1>
         <h2 class="gold">&amp; Happy New Year</h2>
         <div class="rule"></div>
-        <div class="gift-button">
+        
+
+<div class="gift-button">
   <svg viewBox="0 0 100 100" width="110" height="110">
     <defs>
       <linearGradient id="giftGold" x1="0" y1="0" x2="1" y2="1">
@@ -151,45 +153,48 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
         <stop offset="45%" stop-color="#d9a83e"/>
         <stop offset="100%" stop-color="#a87520"/>
       </linearGradient>
+
       <linearGradient id="giftRed" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#ff7777"/>
         <stop offset="50%" stop-color="#b5122a"/>
         <stop offset="100%" stop-color="#79091b"/>
       </linearGradient>
-      
-    </defs><linearGradient id="textShimmer" x1="0%" y1="0%" x2="100%" y2="0%">
-  <stop offset="0%" stop-color="#241707"/>
-  <stop offset="40%" stop-color="#241707"/>
-  <stop offset="50%" stop-color="#fff4c2"/>
-  <stop offset="60%" stop-color="#241707"/>
-  <stop offset="100%" stop-color="#241707"/>
-  <animate attributeName="x1" values="-100%;100%" dur="2.5s" repeatCount="indefinite"/>
-  <animate attributeName="x2" values="0%;200%" dur="2.5s" repeatCount="indefinite"/>
-</linearGradient>
+
+      <linearGradient id="textShimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#241707"/>
+        <stop offset="45%" stop-color="#241707"/>
+        <stop offset="50%" stop-color="#fff4c2"/>
+        <stop offset="55%" stop-color="#241707"/>
+        <stop offset="100%" stop-color="#241707"/>
+        <animate attributeName="x1" values="-100%;100%" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="x2" values="0%;200%" dur="2.5s" repeatCount="indefinite"/>
+      </linearGradient>
+    </defs>
 
     <!-- Kotak emas -->
     <rect x="17" y="39" width="66" height="49" rx="4" fill="url(#giftGold)"/>
 
-    <!-- Pita vertikal merah -->
+    <!-- Pita merah -->
     <rect x="44" y="39" width="12" height="49" fill="url(#giftRed)"/>
 
-    <!-- Tutup kotak -->
+    <!-- Tutup kado -->
     <rect x="12" y="30" width="76" height="13" rx="3" fill="url(#giftGold)"/>
     <rect x="44" y="30" width="12" height="13" fill="url(#giftRed)"/>
 
-    <!-- Simpul pita merah -->
+    <!-- Simpul pita -->
     <path d="M50 30 C25 4 12 15 28 29 Q39 35 50 30" fill="url(#giftRed)" stroke="#8d1020" stroke-width="1"/>
     <path d="M50 30 C75 4 88 15 72 29 Q61 35 50 30" fill="url(#giftRed)" stroke="#8d1020" stroke-width="1"/>
     <circle cx="50" cy="30" r="5" fill="#e83b4f"/>
 
-    <!-- Tulisan hitam -->
+    <!-- Tulisan TAP TO OPEN -->
     <text x="50" y="64" text-anchor="middle"
-      font-size="8" font-weight="bold" fill="url(#textShimmer)"
+      font-size="8" font-weight="bold"
+      fill="url(#textShimmer)" letter-spacing=".5">TAP TO</text>
+
     <text x="50" y="75" text-anchor="middle"
-      font-size="8" font-weight="bold" fill="#241707"
-      letter-spacing=".5">OPEN</text>
+      font-size="8" font-weight="bold"
+      fill="url(#textShimmer)" letter-spacing=".5">OPEN</text>
   </svg>
-        </div>
       </div>
       <div class="face coverback"></div>
     </div>
