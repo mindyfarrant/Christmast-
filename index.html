@@ -24,7 +24,55 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
 .inside{position:relative;inset:auto;flex:1;z-index:0}
 .gold{background:linear-gradient(135deg,var(--gold1),var(--gold2) 45%,var(--gold3) 70%,var(--gold1));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 1px rgba(50,0,5,.65))}
 .embs{filter:drop-shadow(-1px -1px 0 rgba(255,210,210,.5)) drop-shadow(1px 2px 1px rgba(50,0,5,.6))}
-.goldsvg{filter:drop-shadow(0 1px 1px rgba(50,0,5,.6))}
+
+/* Bintang emas bercahaya */
+.goldsvg{
+  filter:
+    drop-shadow(0 0 3px #fff0ae)
+    drop-shadow(0 0 7px #e8bd55)
+    drop-shadow(0 0 13px rgba(255,205,85,.8));
+  transform-origin:center;
+  animation:starGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes starGlow{
+  0%,100%{
+    filter:
+      drop-shadow(0 0 2px #fff0ae)
+      drop-shadow(0 0 5px #e8bd55)
+      drop-shadow(0 0 9px rgba(255,205,85,.5));
+  }
+  50%{
+    filter:
+      drop-shadow(0 0 5px #fff8d6)
+      drop-shadow(0 0 12px #ffd76b)
+      drop-shadow(0 0 20px rgba(255,205,85,1));
+  }
+}
+
+  
+/* Kilatan cahaya bintang */
+.goldsvg{
+  overflow:visible;
+}
+
+.goldsvg use{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:starShimmer 2.4s ease-in-out infinite;
+}
+
+@keyframes starShimmer{
+  0%,100%{
+    opacity:1;
+    filter:brightness(1);
+  }
+  50%{
+    opacity:.75;
+    filter:brightness(1.8);
+  }
+}
+  
 .emb{color:#b4222f;text-shadow:-1px -1px 1px rgba(255,205,205,.55),1px 2px 2px rgba(50,0,5,.65)}
 .front h1{font-size:34px;font-style:italic;margin:6px 0 2px;line-height:1.05}
 .front h2{font-size:16px;letter-spacing:.14em;text-transform:uppercase;margin:0;font-weight:normal}
