@@ -430,7 +430,7 @@ function size(){cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;ctx.setTransfo
 function mk(top){return{x:Math.random()*innerWidth,y:top?-10:Math.random()*innerHeight*-1,r:1+Math.random()*3,s:.6+Math.random()*1.6,d:Math.random()*6.28}}
   
 function makeTouchCrystals(x,y){
-  for(var i=0;i<4;i++){
+  for(var i=0;i<12;i++){
     touchFlakes.push({
       x:x+(Math.random()-.5)*45,
       y:y+(Math.random()-.5)*45,
