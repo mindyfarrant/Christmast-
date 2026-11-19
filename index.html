@@ -156,7 +156,16 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
         <stop offset="50%" stop-color="#b5122a"/>
         <stop offset="100%" stop-color="#79091b"/>
       </linearGradient>
-    </defs>
+      
+    </defs><linearGradient id="textShimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+  <stop offset="0%" stop-color="#241707"/>
+  <stop offset="40%" stop-color="#241707"/>
+  <stop offset="50%" stop-color="#fff4c2"/>
+  <stop offset="60%" stop-color="#241707"/>
+  <stop offset="100%" stop-color="#241707"/>
+  <animate attributeName="x1" values="-100%;100%" dur="2.5s" repeatCount="indefinite"/>
+  <animate attributeName="x2" values="0%;200%" dur="2.5s" repeatCount="indefinite"/>
+</linearGradient>
 
     <!-- Kotak emas -->
     <rect x="17" y="39" width="66" height="49" rx="4" fill="url(#giftGold)"/>
@@ -175,8 +184,7 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
 
     <!-- Tulisan hitam -->
     <text x="50" y="64" text-anchor="middle"
-      font-size="8" font-weight="bold" fill="#241707"
-      letter-spacing=".5">TAP TO</text>
+      font-size="8" font-weight="bold" fill="url(#textShimmer)"
     <text x="50" y="75" text-anchor="middle"
       font-size="8" font-weight="bold" fill="#241707"
       letter-spacing=".5">OPEN</text>
