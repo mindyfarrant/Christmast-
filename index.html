@@ -93,6 +93,68 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
     fill: #fff0ae;
   }
 }
+
+  
+/* Kilauan emas di sekitar kado */
+.gift-button {
+  position: relative;
+}
+
+.gift-button::before,
+.gift-button::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff0ae;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity .35s ease;
+}
+
+.gift-button::before {
+  left: 8px;
+  top: 38px;
+  box-shadow:
+    20px -20px 0 1px #e8c66f,
+    43px -30px 1px #fff0ae,
+    77px -19px 0 1px #e8c66f,
+    99px 2px 0 #fff0ae,
+    15px 35px 1px #e8c66f,
+    85px 37px 1px #fff0ae;
+  animation: goldSparkle 1.5s ease-in-out infinite;
+}
+
+.gift-button::after {
+  left: 23px;
+  top: 18px;
+  box-shadow:
+    25px -10px 1px #fff0ae,
+    52px 0 0 1px #e8c66f,
+    75px 20px 1px #fff0ae,
+    2px 48px 0 #e8c66f,
+    55px 55px 1px #fff0ae;
+  animation: goldSparkle 2s ease-in-out infinite reverse;
+}
+
+@keyframes goldSparkle {
+  0%, 100% {
+    opacity: .15;
+    transform: scale(.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+/* Kilauan hilang ketika kartu dibuka */
+.card.open .gift-button::before,
+.card.open .gift-button::after {
+  opacity: 0;
+}
+  
 </style>
 </head>
 <body>
