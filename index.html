@@ -117,8 +117,12 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
   <div class="hint" id="hint">Tap the card 🎄</div>
 </div>
 <canvas id="snow"></canvas>
+  <audio id="christmasMusic" loop preload="none">
+  <source src="/music/Bobby%20Helms%20-%20Jingle%20Bell%20Rock(MP3_160K).mp3" type="audio/mpeg">
+  </audio>
 <script>
 var card=document.getElementById('card'),hint=document.getElementById('hint'),cv=document.getElementById('snow'),ctx=cv.getContext('2d');
+  var music=document.getElementById('christmasMusic');
 var flakes=[],raf=0,on=false,timer=0,dpr=Math.min(window.devicePixelRatio||1,2);
 function size(){cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
 function mk(top){return{x:Math.random()*innerWidth,y:top?-10:Math.random()*innerHeight*-1,r:1+Math.random()*3,s:.6+Math.random()*1.6,d:Math.random()*6.28}}
@@ -131,7 +135,22 @@ function tick(){
 }
 function start(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;size();flakes=[];for(var i=0;i<120;i++)flakes.push(mk(false));cancelAnimationFrame(raf);tick()}
 function stop(){clearTimeout(timer);cancelAnimationFrame(raf);ctx.clearRect(0,0,innerWidth,innerHeight)}
-function toggle(){on=!on;card.classList.toggle('open',on);hint.textContent=on?'Tap again to close':'Tap the card 🎄';if(on){timer=setTimeout(start,500)}else{stop()}}
+function toggle(){
+  on=!on;
+  card.classList.toggle('open',on);
+  hint.textContent=on?'Tap again to close':'Tap the card 🎄';
+
+  if(on){
+    timer=setTimeout(start,500);
+    music.play().catch(function(error){
+      console.warn('Musik tidak dapat diputar:',error);
+    });
+  }else{
+    stop();
+    music.pause();
+    music.currentTime=0;
+  }
+}
 card.addEventListener('click',toggle);
 card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
 addEventListener('resize',function(){if(on)size()});
